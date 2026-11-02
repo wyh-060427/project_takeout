@@ -89,7 +89,22 @@ public class EmployeeController {
         employeeService.startOrStop(status,id);
         return Result.success();
     }
-
+    //根据id查询员工信息页面的原始信息展示
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询员工信息")
+    public Result<Employee> showinfo(@PathVariable Long id){
+        log.info("要编辑的员工id：{}",id);
+        Employee employee=employeeService.showinfo(id);
+        return Result.success(employee);
+    }
+    //数据修改
+    @PutMapping
+    @ApiOperation("编辑员工信息")
+    public Result editEmp(@RequestBody EmployeeDTO employeeDTO){
+        log.info("编辑的员工信息:{}",employeeDTO);
+        employeeService.editEmp(employeeDTO);
+        return Result.success();
+    }
     /**
      * 退出
      *
