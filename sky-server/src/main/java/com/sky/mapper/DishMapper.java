@@ -49,4 +49,10 @@ public interface DishMapper {
      */
     @Select("select * from dish where id=#{id}")
     Dish getById(Long id);
+
+    /**
+     * 根据菜品id集合批量删除菜品
+     * @param ids
+     */
+    void deleteByIds(List<Long> ids);
 }
