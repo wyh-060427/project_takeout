@@ -8,6 +8,7 @@ import com.sky.constant.StatusConstant;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
+import com.sky.entity.Setmeal;
 import com.sky.exception.DeletionNotAllowedException;
 import com.sky.mapper.SetmealDishMapper;
 import com.sky.vo.DishVO;
@@ -144,5 +145,12 @@ public class DishServiceImpl implements DishService {
             //批量插入
             dishFlavorMapper.insertBatch(flavors);
         }
+    }
+
+    @Override
+    public List<Dish> getByCategoryId(Long categoryId) {
+        Dish dish=Dish.builder().categoryId(categoryId).status(StatusConstant.ENABLE).build();
+        List<Dish> dishes=dishMapper.getByCategoryId(dish);
+        return dishes;
     }
 }

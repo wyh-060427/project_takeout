@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
+import com.sky.entity.Setmeal;
 import com.sky.result.PageResult;
 import com.sky.vo.DishVO;
 
@@ -34,4 +35,6 @@ public interface DishService {
     DishVO show(Long id);
 
     void updateWithFlavor(DishDTO dishDTO);
+
+    List<Dish> getByCategoryId(Long categoryId);
 }
