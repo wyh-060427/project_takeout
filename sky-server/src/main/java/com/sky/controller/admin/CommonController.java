@@ -19,7 +19,7 @@ import java.util.UUID;
 @Slf4j
 @RestController
 @RequestMapping("/admin/common")
-@Api("通用接口")
+@Api(tags = "通用接口")
 public class CommonController {
     @Autowired
     private AliOssUtil aliOssUtil;
