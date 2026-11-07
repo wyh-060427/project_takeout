@@ -7,6 +7,10 @@ import java.util.List;
 
 public interface ShoppingCardService {
 
+    /**
+     * 添加商品（菜品或套餐）进入购物车
+     * @param shoppingCartDTO
+     */
     void addShoppingCard(ShoppingCartDTO shoppingCartDTO);
 
     /**
@@ -14,4 +18,9 @@ public interface ShoppingCardService {
      * @return
      */
     List<ShoppingCart> showShoppingCart();
+
+    /**
+     * 清空购物车
+     */
+    void cleanShoppingCard();
 }
