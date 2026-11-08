@@ -19,6 +19,7 @@ import java.util.List;
 public class ShoppingCardController {
     @Autowired
     private ShoppingCardService shoppingCardService;
+    private ShoppingCartDTO shoppingCartDTO;
 
     /**
      * 添加购物车
@@ -52,6 +53,19 @@ public class ShoppingCardController {
     @ApiOperation("清空购物车")
     public Result clean(){
         shoppingCardService.cleanShoppingCard();
+        return Result.success();
+    }
+
+    /**
+     * 减少购物车里的菜品
+     * @param shoppingCartDTO
+     * @return
+     */
+    @PostMapping("/sub")
+    @ApiOperation("减少购物车里的菜品")
+    public Result sub(ShoppingCartDTO shoppingCartDTO){
+        this.shoppingCartDTO = shoppingCartDTO;
+        shoppingCardService.subShoppingCard(shoppingCartDTO);
         return Result.success();
     }
 }

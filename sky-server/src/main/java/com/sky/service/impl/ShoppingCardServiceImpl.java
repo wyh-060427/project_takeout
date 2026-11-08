@@ -94,4 +94,25 @@ public class ShoppingCardServiceImpl implements ShoppingCardService {
         shoppingCardMapper.deleteByUserId(userId);
 
     }
+
+    /**
+     *减少购物车商品
+     * @param shoppingCartDTO
+     */
+    @Override
+    public void subShoppingCard(ShoppingCartDTO shoppingCartDTO) {
+        ShoppingCart shoppingCart = new ShoppingCart();
+        BeanUtils.copyProperties(shoppingCartDTO,shoppingCart);
+        Long userId = BaseContext.getCurrentId();
+        shoppingCart.setUserId(userId);
+
+        List<ShoppingCart> list = shoppingCardMapper.list(shoppingCart);
+        //判断当前加入到购物车中的商品是否已经存在了
+        if(list!=null && list.size()>0){
+            //如果已经存在了，只需要将数量加一
+            ShoppingCart cart = list.get(0);
+            cart.setNumber(cart.getNumber()-1);//update shopping_cart set number=? where id=?
+            shoppingCardMapper.updateNumberById(cart);
+        }
+    }
 }

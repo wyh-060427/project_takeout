@@ -23,4 +23,10 @@ public interface ShoppingCardService {
      * 清空购物车
      */
     void cleanShoppingCard();
+
+    /**
+     * 减少购物车商品（菜品或套餐）
+     * @param shoppingCartDTO
+     */
+    void subShoppingCard(ShoppingCartDTO shoppingCartDTO);
 }
