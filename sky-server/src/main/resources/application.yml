@@ -59,3 +59,7 @@ sky:
     weChatPayCertFilePath: ${sky.wechat.weChatPayCertFilePath}
 #    notifyUrl: ${sky.wechat.notifyUrl}
 #    refundNotifyUrl: ${sky.wechat.refundNotifyUrl}
+  shop:
+    address: 深圳市南山区西丽街道
+  baidu:
+    ak: 1r9PcrvajlwaFjT9teYcKVE49zaF34oQ
